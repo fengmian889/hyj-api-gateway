@@ -1,4 +1,4 @@
-module github.com/fengmian889/hyj-calllog
+module github.com/fengmian889/hyj-api-gateway
 
 go 1.24.0
 

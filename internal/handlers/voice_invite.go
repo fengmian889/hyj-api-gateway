@@ -8,7 +8,7 @@ import (
 	"github.com/google/uuid"
 	"go.uber.org/zap"
 
-	"github.com/fengmian889/hyj-calllog/internal/pkg/contextx"
+	"github.com/fengmian889/hyj-api-gateway/internal/pkg/contextx"
 )
 
 // VoiceInviteHandler 处理 /api/voice/invite 请求，返回 XML 模板

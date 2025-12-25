@@ -13,9 +13,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
-	"github.com/fengmian889/hyj-calllog/internal/handlers"
-	mw "github.com/fengmian889/hyj-calllog/internal/pkg/middleware"
-	genericoptions "github.com/fengmian889/hyj-calllog/pkg/options"
+	"github.com/fengmian889/hyj-api-gateway/internal/handlers"
+	mw "github.com/fengmian889/hyj-api-gateway/internal/pkg/middleware"
+	genericoptions "github.com/fengmian889/hyj-api-gateway/pkg/options"
 )
 
 // Config 配置结构体，用于存储应用相关的配置.
@@ -51,7 +51,11 @@ func (cfg *Config) NewServer() (*Server, error) {
 	})
 
 	// 注册 /api/voice/invite handler.
-	engine.GET("/api/voice/invite", handlers.VoiceInviteHandler)
+	engine.GET("/api/voice/invite", handlers.VoiceInviteProxyHandler)
+	engine.POST("/api/voice/invite", handlers.VoiceInviteProxyHandler)
+	// 注册 /api/voice/call/log handler.
+	engine.GET("/api/voice/call/log", handlers.VoiceCallLogProxyHandler)
+	engine.POST("/api/voice/call/log", handlers.VoiceCallLogProxyHandler)
 
 	// 创建 HTTP Server 实例
 	httpsrv := &http.Server{Addr: cfg.Addr, Handler: engine}

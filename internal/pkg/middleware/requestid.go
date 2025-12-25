@@ -10,8 +10,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 
-	"github.com/fengmian889/hyj-calllog/internal/pkg/contextx"
-	"github.com/fengmian889/hyj-calllog/internal/pkg/known"
+	"github.com/fengmian889/hyj-api-gateway/internal/pkg/contextx"
+	"github.com/fengmian889/hyj-api-gateway/internal/pkg/known"
 )
 
 // RequestID 是一个 Gin 中间件，用来在每一个 HTTP 请求的 context, response 中注入 `x-request-id` 键值对.

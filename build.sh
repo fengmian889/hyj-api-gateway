@@ -7,7 +7,7 @@ PROJ_ROOT_DIR=$(dirname "${BASH_SOURCE[0]}")
 OUTPUT_DIR=${PROJ_ROOT_DIR}/_output
 
 # 指定版本信息包的路径，后续会通过-ldflags参数将版本信息注入到这个包的变量中
-VERSION_PACKAGE=github.com/fengmian889/hyj-calllog/pkg/version
+VERSION_PACKAGE=github.com/fengmian889/hyj-api-gateway/pkg/version
 
 # 确定VERSION值：如果环境变量中没有设置VERSION，则使用git标签作为版本号
 # git describe --tags --always --match='v*'命令会获取最近的v开头的标签，如果没有则使用当前commit的短哈希
@@ -47,4 +47,4 @@ GO_LDFLAGS="-X ${VERSION_PACKAGE}.gitVersion=${VERSION} \
 GOOS=linux \
 GOARCH=amd64 \
 CGO_ENABLED=0 \
-go build -v -ldflags "${GO_LDFLAGS}" -o ${OUTPUT_DIR}/calllog-apiserver -v cmd/calllog-apiserver/main.go
+go build -v -ldflags "${GO_LDFLAGS}" -o ${OUTPUT_DIR}/api-gateway -v cmd/api-gateway/main.go
